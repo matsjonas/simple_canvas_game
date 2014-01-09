@@ -52,10 +52,14 @@ var reset = function () {
 	hero.x = canvas.width / 2;
 	hero.y = canvas.height / 2;
 
+	resetMonster();
+};
+
+var resetMonster = function() {
 	// Throw the monster somewhere on the screen randomly
 	monster.x = 32 + (Math.random() * (canvas.width - 64));
 	monster.y = 32 + (Math.random() * (canvas.height - 64));
-};
+}
 
 // Update game objects
 var update = function (modifier) {
@@ -80,7 +84,7 @@ var update = function (modifier) {
 		&& monster.y <= (hero.y + 32)
 	) {
 		++monstersCaught;
-		reset();
+		resetMonster();
 	}
 };
 
